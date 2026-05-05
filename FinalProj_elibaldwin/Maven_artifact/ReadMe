@@ -1,0 +1,14 @@
+This program is meant to provide information on how well a given comparison raster file matches a reference raster file. 
+The main use case for this is comparing data from a landcover classification algorithm used on satellite or aerial imagery 
+to ground truth data. The raster files are expected to have values representing landcover classifications, usually these will 
+be a subset of numbers between 0-99. The user also provides a csv file that is a landcover classification key containing the 
+numerical land cover class values and corresponding descriptions.
+
+The two input rasters must have the same number of rows and columns. All of the values in the raster data must be present
+in the classification key. Handled errors such as failing to meet those criteria will be reported to the user in an error
+window.
+
+This program calculates global and per-class results. The global results consist of an error matrix of landcover classes and 
+the overall percent correct. The per-class results are a contingency table of presence and absence as well as the precision,
+recall and f1-score statistics. These results are put into a StringBuilder which is then put into a JTextPane in a JFrame that
+will display to the user, as well as being saved to a text file.
